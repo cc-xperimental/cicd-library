@@ -5,23 +5,29 @@ properties([
       choiceType: 'PT_SINGLE_SELECT',
       name: 'Environment',
       script: [
-        $class: 'ScriptlerScript',
-        scriptlerScriptId:'Environments.groovy'
+        $class: 'GroovyScript',
+        script: [
+          classpath: [], 
+          sandbox: false, 
+          script: '''
+            return ["DEV", "TEST", "STAGE", "PROD"]
+          '''
+        ]
       ]
-    ],
+    ]/*,
     [
       $class: 'CascadeChoiceParameter',
       choiceType: 'PT_SINGLE_SELECT',
       name: 'Host',
       referencedParameters: 'Environment',
       script: [
-        $class: 'ScriptlerScript',
-        scriptlerScriptId:'HostsInEnv.groovy',
-        parameters: [
-          [name:'Environment', value: '$Environment']
+        $class: 'GroovyScript',
+        script: [
+          script: '''
+          '''
         ]
       ]
-   ]
+   ]*/
  ])
 ])
 
