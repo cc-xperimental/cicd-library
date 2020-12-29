@@ -76,11 +76,18 @@ properties([
             ]
     ])
 ])
+
+@NonCPS
+def printParams() {
+  env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }
+}
+
 pipeline {
     agent any
         stages {
             stage('Parameters'){
                 steps {
+                    printParams()
                     echo params.Env
                     echo params['AMI List']
                 }
