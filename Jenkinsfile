@@ -9,9 +9,7 @@ properties([
         script: [
           classpath: [], 
           sandbox: false, 
-          script: '''
-            return ["DEV", "TEST", "STAGE", "PROD"]
-          '''
+          script: "return['dev','stage','prod']"
         ]
       ]
     ]/*,
