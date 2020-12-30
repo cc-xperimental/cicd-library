@@ -1,0 +1,2 @@
+<h2>isMasterBranch</h2>
+<p>Determines if a given GIT REF is the master branch</p>
