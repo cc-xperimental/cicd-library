@@ -36,6 +36,7 @@ pipeline {
       steps {
         echo "${params.Environment}"
         echo "${params.Host}"
+        echo "is master? ${isMasterBranch()}"
       }
     }
   }
